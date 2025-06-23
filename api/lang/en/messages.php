@@ -9,4 +9,6 @@ return [
     'invalid_per_page' => 'The per_page parameter must be a positive integer.',
     'invalid_credentials' => 'Invalid credentials.',
     'logged_out' => 'Logged out.',
+    'onboarding_success' => 'Onboarding executed successfully.',
+    'onboarding_error' => 'Error executing onboarding.',
 ];

@@ -411,3 +411,102 @@ paths:
         required: true
         schema:
           type: integer
+  '/api/kargho/onboard-from-fmcsa/{dotnumber}':
+    post:
+      summary: 'Trigger onboarding using a DOT number from FMCSA.'
+      operationId: triggerOnboardingUsingADOTNumberFromFMCSA
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Accept-Language
+          description: ''
+          example: en
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: true
+                  message: 'Onboarding executed successfully.'
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: 'Onboarding executed successfully.'
+        400:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'Validation error.'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'Validation error.'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  success: false
+                  message: 'DOT not found in FMCSA.'
+                properties:
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'DOT not found in FMCSA.'
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dot:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: vmqeopfuudtdsufvyvddq
+                  nullable: false
+                password:
+                  type: string
+                  description: Password.
+                  example: '123456'
+                  nullable: false
+                idcountry:
+                  type: integer
+                  description: 'Country ID (1=USA, 2=ARG).'
+                  example: 1
+                  nullable: false
+              required:
+                - dot
+                - password
+                - idcountry
+    parameters:
+      -
+        in: path
+        name: dotnumber
+        description: 'DOT number.'
+        example: '123456'
+        required: true
+        schema:
+          type: string

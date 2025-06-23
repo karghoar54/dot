@@ -26,3 +26,6 @@ Route::middleware(['auth:sanctum', 'localization'])->prefix('dots')->group(funct
     Route::get('/', [\App\Http\Controllers\Api\DotController::class, 'index']);
     Route::get('/{dotnumber}', [\App\Http\Controllers\Api\DotController::class, 'show']);
 });
+
+// Onboarding endpoints
+Route::post('/kargho/onboard-from-fmcsa/{dotnumber}', [\App\Http\Controllers\Api\KarghoOnboardingController::class, 'onboardFromFMCSA']);

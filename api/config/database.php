@@ -107,6 +107,20 @@ return [
             'trust_server_certificate' => env('FMCSA_DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
+        'karghous' => [
+            'driver' => 'sqlsrv',
+            'host' => env('KARGHOUS_DB_HOST', 'localhost'),
+            'port' => env('KARGHOUS_DB_PORT', '1433'),
+            'database' => env('KARGHOUS_DB_DATABASE', 'forge'),
+            'username' => env('KARGHOUS_DB_USERNAME', 'forge'),
+            'password' => env('KARGHOUS_DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'encrypt' => env('KARGHOUS_DB_ENCRYPT', 'yes'),
+            'trust_server_certificate' => env('KARGHOUS_DB_TRUST_SERVER_CERTIFICATE', 'false'),
+        ],
+
     ],
 
     /*

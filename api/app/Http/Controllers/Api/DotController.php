@@ -67,26 +67,31 @@ class DotController extends Controller
         // Filtros: EIN, VIN, License, DOT, MC, Company Name, Company Owner, DBA, City, State, Inspections
         $query = FMCSDot::query();
         $filters = [
-            'ein' => 'EIN',
-            'vin' => 'VIN',
-            'license' => 'License',
-            'dot' => 'DOT',
-            'mc' => 'MC',
-            'company_name' => 'CompanyName',
-            'company_owner' => 'CompanyOwner',
-            'dba' => 'DBA',
-            'city' => 'City',
-            'state' => 'State',
+            'ein' => 'ein',
+            // 'vin' => 'VIN', // VIN está en FMCSAInspections, no en FMCSADots
+            // 'license' => 'License', // License está en FMCSAInspections
+            'dot' => 'dotNumber',
+            // 'mc' => 'icc1', // Si corresponde, revisar si existe en FMCSADots
+            'company_name' => 'legalName',
+            // 'company_owner' => '', // No existe en FMCSADots
+            'dba' => 'dbaName',
+            'city' => 'phyCity',
+            'state' => 'phyState',
         ];
         foreach ($filters as $param => $column) {
             if ($request->filled($param)) {
                 $query->where($column, 'like', '%' . $request->input($param) . '%');
             }
         }
-        // Inspections: filtro especial
-        if ($request->filled('inspections')) {
+        // Filtros especiales para VIN y License en Inspections
+        if ($request->filled('vin')) {
             $query->whereHas('inspections', function ($q) use ($request) {
-                $q->where('InspectionType', 'like', '%' . $request->input('inspections') . '%');
+                $q->where('VIN', 'like', '%' . $request->input('vin') . '%');
+            });
+        }
+        if ($request->filled('license')) {
+            $query->whereHas('inspections', function ($q) use ($request) {
+                $q->where('UNIT_LICENSE', 'like', '%' . $request->input('license') . '%');
             });
         }
         $perPage = $request->input('per_page', 15);

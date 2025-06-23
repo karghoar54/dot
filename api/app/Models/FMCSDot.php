@@ -13,6 +13,6 @@ class FMCSDot extends Model
 
     public function inspections()
     {
-        return $this->hasMany(\App\Models\FMCSAInspection::class, 'DOT', 'DOT');
+        return $this->hasMany(\App\Models\FMCSAInspection::class, 'DOT_NUMBER', 'dotNumber');
     }
 }

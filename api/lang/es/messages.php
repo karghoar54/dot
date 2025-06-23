@@ -9,4 +9,6 @@ return [
     'invalid_per_page' => 'El parámetro per_page debe ser un entero positivo.',
     'invalid_credentials' => 'Credenciales inválidas.',
     'logged_out' => 'Sesión cerrada.',
+    'onboarding_success' => 'Onboarding ejecutado correctamente.',
+    'onboarding_error' => 'Error al ejecutar el onboarding.',
 ];
