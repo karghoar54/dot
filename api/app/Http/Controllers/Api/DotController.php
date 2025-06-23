@@ -19,7 +19,7 @@ class DotController extends Controller
      * Get a paginated list of DOTs with filters.
      *
      * @header Accept-Language en
-     * @queryParam per_page int Number of results per page. Example: 10
+     * @queryParam per_page int Number of results per page. Maximum: 100. Example: 10
      * @queryParam dot int DOT number. Example: 123456
      * @queryParam ein string EIN. Example: 12-3456789
      * @queryParam vin string VIN. Example: 1HGCM82633A004352
@@ -94,7 +94,8 @@ class DotController extends Controller
                 $q->where('UNIT_LICENSE', 'like', '%' . $request->input('license') . '%');
             });
         }
-        $perPage = $request->input('per_page', 15);
+        $maxPerPage = 100; // Set your desired maximum
+        $perPage = min($request->input('per_page', 15), $maxPerPage);
         $dots = $query->paginate($perPage);
         return $this->successResponse($dots, __('messages.dots_list'));
     }
