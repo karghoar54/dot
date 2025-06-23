@@ -18,14 +18,21 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-// Authentication endpoints
-Route::post('/login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
-Route::middleware('auth:sanctum')->post('/logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);
+// Versioned API routes (v1)
+Route::prefix('v1')->group(function () {
+    // Authentication endpoints
+    Route::post('/login', [\App\Http\Controllers\Api\AuthController::class, 'login']);
+    Route::middleware('auth:sanctum')->post('/logout', [\App\Http\Controllers\Api\AuthController::class, 'logout']);
 
-Route::middleware(['auth:sanctum', 'localization'])->prefix('dots')->group(function () {
-    Route::get('/', [\App\Http\Controllers\Api\DotController::class, 'index']);
-    Route::get('/{dotnumber}', [\App\Http\Controllers\Api\DotController::class, 'show']);
+    Route::middleware(['auth:sanctum', 'localization'])->prefix('dots')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Api\DotController::class, 'index']);
+        Route::get('/{dotnumber}', [\App\Http\Controllers\Api\DotController::class, 'show']);
+    });
+
+    // Onboarding endpoints
+    Route::post('/kargho/onboard-from-fmcsa/{dotnumber}', [\App\Http\Controllers\Api\KarghoOnboardingController::class, 'onboardFromFMCSA']);
 });
 
-// Onboarding endpoints
-Route::post('/kargho/onboard-from-fmcsa/{dotnumber}', [\App\Http\Controllers\Api\KarghoOnboardingController::class, 'onboardFromFMCSA']);
+// Optionally, you can deprecate or remove the unversioned routes below
+// Route::post('/login', ...);
+// ...existing code...

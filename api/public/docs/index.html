@@ -71,11 +71,11 @@
                     <a href="#authentication">Authentication</a>
                 </li>
                                     <ul id="tocify-subheader-authentication" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="authentication-POSTapi-login">
-                                <a href="#authentication-POSTapi-login">Login and get token</a>
+                                                    <li class="tocify-item level-2" data-unique="authentication-POSTapi-v1-login">
+                                <a href="#authentication-POSTapi-v1-login">Login and get token</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="authentication-POSTapi-logout">
-                                <a href="#authentication-POSTapi-logout">Logout (revoke token)</a>
+                                                                                <li class="tocify-item level-2" data-unique="authentication-POSTapi-v1-logout">
+                                <a href="#authentication-POSTapi-v1-logout">Logout (revoke token)</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -84,14 +84,14 @@
                     <a href="#endpoints">Endpoints</a>
                 </li>
                                     <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-dots">
-                                <a href="#endpoints-GETapi-dots">List DOTs</a>
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-dots">
+                                <a href="#endpoints-GETapi-v1-dots">List DOTs</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-dots--dotnumber-">
-                                <a href="#endpoints-GETapi-dots--dotnumber-">Show DOT detail</a>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-dots--dotnumber-">
+                                <a href="#endpoints-GETapi-v1-dots--dotnumber-">Show DOT detail</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-kargho-onboard-from-fmcsa--dotnumber-">
-                                <a href="#endpoints-POSTapi-kargho-onboard-from-fmcsa--dotnumber-">Onboard a DOT from FMCSA into KarghoUS</a>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-">
+                                <a href="#endpoints-POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-">Onboard a DOT from FMCSA into KarghoUS</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -129,7 +129,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
     
 
-                                <h2 id="authentication-POSTapi-login">Login and get token</h2>
+                                <h2 id="authentication-POSTapi-v1-login">Login and get token</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -137,13 +137,13 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <p>Authenticate a user and return a Bearer token for API usage.</p>
 
-<span id="example-requests-POSTapi-login">
+<span id="example-requests-POSTapi-v1-login">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8009/api/login" \
+    "http://localhost:8009/api/v1/login" \
     --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
     --header "Accept-Language: en" \
     --header "Content-Type: application/json" \
@@ -157,7 +157,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8009/api/login"
+    "http://localhost:8009/api/v1/login"
 );
 
 const headers = {
@@ -180,7 +180,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-POSTapi-login">
+<span id="example-responses-POSTapi-v1-login">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -200,43 +200,43 @@ fetch(url, {
 }</code>
  </pre>
     </span>
-<span id="execution-results-POSTapi-login" hidden>
+<span id="execution-results-POSTapi-v1-login" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-login"></span>:
+                id="execution-response-status-POSTapi-v1-login"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-login"
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-login"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-POSTapi-login" hidden>
+<span id="execution-error-POSTapi-v1-login" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-login">
+    <pre><code id="execution-error-message-POSTapi-v1-login">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-POSTapi-login" data-method="POST"
-      data-path="api/login"
+<form id="form-POSTapi-v1-login" data-method="POST"
+      data-path="api/v1/login"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-login', this);">
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-login', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-login"
-                    onclick="tryItOut('POSTapi-login');">Try it out ⚡
+                    id="btn-tryout-POSTapi-v1-login"
+                    onclick="tryItOut('POSTapi-v1-login');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-login"
-                    onclick="cancelTryOut('POSTapi-login');" hidden>Cancel 🛑
+                    id="btn-canceltryout-POSTapi-v1-login"
+                    onclick="cancelTryOut('POSTapi-v1-login');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-login"
+                    id="btn-executetryout-POSTapi-v1-login"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -244,7 +244,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
-            <b><code>api/login</code></b>
+            <b><code>api/v1/login</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -252,7 +252,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-login"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-login"
                value="Bearer {YOUR_AUTH_TOKEN}"
                data-component="header">
     <br>
@@ -263,7 +263,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept-Language"                data-endpoint="POSTapi-login"
+                              name="Accept-Language"                data-endpoint="POSTapi-v1-login"
                value="en"
                data-component="header">
     <br>
@@ -274,7 +274,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-login"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-login"
                value="application/json"
                data-component="header">
     <br>
@@ -285,7 +285,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-login"
+                              name="Accept"                data-endpoint="POSTapi-v1-login"
                value="application/json"
                data-component="header">
     <br>
@@ -297,7 +297,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="email"                data-endpoint="POSTapi-login"
+                              name="email"                data-endpoint="POSTapi-v1-login"
                value="user@example.com"
                data-component="body">
     <br>
@@ -308,7 +308,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="password"                data-endpoint="POSTapi-login"
+                              name="password"                data-endpoint="POSTapi-v1-login"
                value="secret"
                data-component="body">
     <br>
@@ -316,7 +316,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="authentication-POSTapi-logout">Logout (revoke token)</h2>
+                    <h2 id="authentication-POSTapi-v1-logout">Logout (revoke token)</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -324,13 +324,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <p>Revoke the current user's token. Requires authentication.</p>
 
-<span id="example-requests-POSTapi-logout">
+<span id="example-requests-POSTapi-v1-logout">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8009/api/logout" \
+    "http://localhost:8009/api/v1/logout" \
     --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
     --header "Accept-Language: en" \
     --header "Content-Type: application/json" \
@@ -339,7 +339,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8009/api/logout"
+    "http://localhost:8009/api/v1/logout"
 );
 
 const headers = {
@@ -356,7 +356,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-POSTapi-logout">
+<span id="example-responses-POSTapi-v1-logout">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -367,43 +367,43 @@ fetch(url, {
 }</code>
  </pre>
     </span>
-<span id="execution-results-POSTapi-logout" hidden>
+<span id="execution-results-POSTapi-v1-logout" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-logout"></span>:
+                id="execution-response-status-POSTapi-v1-logout"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-logout"
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-logout"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-POSTapi-logout" hidden>
+<span id="execution-error-POSTapi-v1-logout" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-logout">
+    <pre><code id="execution-error-message-POSTapi-v1-logout">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-POSTapi-logout" data-method="POST"
-      data-path="api/logout"
+<form id="form-POSTapi-v1-logout" data-method="POST"
+      data-path="api/v1/logout"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-logout', this);">
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-logout', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-logout"
-                    onclick="tryItOut('POSTapi-logout');">Try it out ⚡
+                    id="btn-tryout-POSTapi-v1-logout"
+                    onclick="tryItOut('POSTapi-v1-logout');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-logout"
-                    onclick="cancelTryOut('POSTapi-logout');" hidden>Cancel 🛑
+                    id="btn-canceltryout-POSTapi-v1-logout"
+                    onclick="cancelTryOut('POSTapi-v1-logout');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-logout"
+                    id="btn-executetryout-POSTapi-v1-logout"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -411,7 +411,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
-            <b><code>api/logout</code></b>
+            <b><code>api/v1/logout</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -419,7 +419,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-logout"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-logout"
                value="Bearer {YOUR_AUTH_TOKEN}"
                data-component="header">
     <br>
@@ -430,7 +430,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept-Language"                data-endpoint="POSTapi-logout"
+                              name="Accept-Language"                data-endpoint="POSTapi-v1-logout"
                value="en"
                data-component="header">
     <br>
@@ -441,7 +441,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-logout"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-logout"
                value="application/json"
                data-component="header">
     <br>
@@ -452,7 +452,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-logout"
+                              name="Accept"                data-endpoint="POSTapi-v1-logout"
                value="application/json"
                data-component="header">
     <br>
@@ -464,7 +464,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="endpoints-GETapi-dots">List DOTs</h2>
+                                <h2 id="endpoints-GETapi-v1-dots">List DOTs</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -472,13 +472,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <p>Get a paginated list of DOTs with filters.</p>
 
-<span id="example-requests-GETapi-dots">
+<span id="example-requests-GETapi-v1-dots">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8009/api/dots?per_page=10&amp;dot=123456&amp;ein=12-3456789&amp;vin=1HGCM82633A004352&amp;license=ABC123&amp;mc=MC123456&amp;company_name=Acme+Inc&amp;company_owner=John+Doe&amp;dba=Acme+Logistics&amp;city=Miami&amp;state=FL&amp;inspections=Safety" \
+    --get "http://localhost:8009/api/v1/dots?per_page=10&amp;dot=123456&amp;ein=12-3456789&amp;vin=1HGCM82633A004352&amp;license=ABC123&amp;mc=MC123456&amp;company_name=Acme+Inc&amp;company_owner=John+Doe&amp;dba=Acme+Logistics&amp;city=Miami&amp;state=FL&amp;inspections=Safety" \
     --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
     --header "Accept-Language: en" \
     --header "Content-Type: application/json" \
@@ -502,7 +502,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8009/api/dots"
+    "http://localhost:8009/api/v1/dots"
 );
 
 const params = {
@@ -552,7 +552,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-dots">
+<span id="example-responses-GETapi-v1-dots">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -565,43 +565,43 @@ fetch(url, {
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-dots" hidden>
+<span id="execution-results-GETapi-v1-dots" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-dots"></span>:
+                id="execution-response-status-GETapi-v1-dots"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-dots"
+    <pre class="json"><code id="execution-response-content-GETapi-v1-dots"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-dots" hidden>
+<span id="execution-error-GETapi-v1-dots" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-dots">
+    <pre><code id="execution-error-message-GETapi-v1-dots">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-dots" data-method="GET"
-      data-path="api/dots"
+<form id="form-GETapi-v1-dots" data-method="GET"
+      data-path="api/v1/dots"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-dots', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-dots', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-dots"
-                    onclick="tryItOut('GETapi-dots');">Try it out ⚡
+                    id="btn-tryout-GETapi-v1-dots"
+                    onclick="tryItOut('GETapi-v1-dots');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-dots"
-                    onclick="cancelTryOut('GETapi-dots');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-v1-dots"
+                    onclick="cancelTryOut('GETapi-v1-dots');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-dots"
+                    id="btn-executetryout-GETapi-v1-dots"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -609,7 +609,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/dots</code></b>
+            <b><code>api/v1/dots</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -617,7 +617,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-dots"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-dots"
                value="Bearer {YOUR_AUTH_TOKEN}"
                data-component="header">
     <br>
@@ -628,7 +628,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept-Language"                data-endpoint="GETapi-dots"
+                              name="Accept-Language"                data-endpoint="GETapi-v1-dots"
                value="en"
                data-component="header">
     <br>
@@ -639,7 +639,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-dots"
+                              name="Content-Type"                data-endpoint="GETapi-v1-dots"
                value="application/json"
                data-component="header">
     <br>
@@ -650,7 +650,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-dots"
+                              name="Accept"                data-endpoint="GETapi-v1-dots"
                value="application/json"
                data-component="header">
     <br>
@@ -662,7 +662,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="per_page"                data-endpoint="GETapi-dots"
+               step="any"               name="per_page"                data-endpoint="GETapi-v1-dots"
                value="10"
                data-component="query">
     <br>
@@ -673,7 +673,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="dot"                data-endpoint="GETapi-dots"
+               step="any"               name="dot"                data-endpoint="GETapi-v1-dots"
                value="123456"
                data-component="query">
     <br>
@@ -684,7 +684,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="ein"                data-endpoint="GETapi-dots"
+                              name="ein"                data-endpoint="GETapi-v1-dots"
                value="12-3456789"
                data-component="query">
     <br>
@@ -695,7 +695,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="vin"                data-endpoint="GETapi-dots"
+                              name="vin"                data-endpoint="GETapi-v1-dots"
                value="1HGCM82633A004352"
                data-component="query">
     <br>
@@ -706,7 +706,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="license"                data-endpoint="GETapi-dots"
+                              name="license"                data-endpoint="GETapi-v1-dots"
                value="ABC123"
                data-component="query">
     <br>
@@ -717,7 +717,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="mc"                data-endpoint="GETapi-dots"
+                              name="mc"                data-endpoint="GETapi-v1-dots"
                value="MC123456"
                data-component="query">
     <br>
@@ -728,7 +728,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="company_name"                data-endpoint="GETapi-dots"
+                              name="company_name"                data-endpoint="GETapi-v1-dots"
                value="Acme Inc"
                data-component="query">
     <br>
@@ -739,7 +739,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="company_owner"                data-endpoint="GETapi-dots"
+                              name="company_owner"                data-endpoint="GETapi-v1-dots"
                value="John Doe"
                data-component="query">
     <br>
@@ -750,7 +750,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="dba"                data-endpoint="GETapi-dots"
+                              name="dba"                data-endpoint="GETapi-v1-dots"
                value="Acme Logistics"
                data-component="query">
     <br>
@@ -761,7 +761,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="city"                data-endpoint="GETapi-dots"
+                              name="city"                data-endpoint="GETapi-v1-dots"
                value="Miami"
                data-component="query">
     <br>
@@ -772,7 +772,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="state"                data-endpoint="GETapi-dots"
+                              name="state"                data-endpoint="GETapi-v1-dots"
                value="FL"
                data-component="query">
     <br>
@@ -783,7 +783,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="inspections"                data-endpoint="GETapi-dots"
+                              name="inspections"                data-endpoint="GETapi-v1-dots"
                value="Safety"
                data-component="query">
     <br>
@@ -795,7 +795,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="per_page"                data-endpoint="GETapi-dots"
+               step="any"               name="per_page"                data-endpoint="GETapi-v1-dots"
                value="73"
                data-component="body">
     <br>
@@ -806,7 +806,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>number</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="dot"                data-endpoint="GETapi-dots"
+               step="any"               name="dot"                data-endpoint="GETapi-v1-dots"
                value="11613.31890586"
                data-component="body">
     <br>
@@ -817,7 +817,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="ein"                data-endpoint="GETapi-dots"
+                              name="ein"                data-endpoint="GETapi-v1-dots"
                value="opfuudtdsufvyvddqamni"
                data-component="body">
     <br>
@@ -828,7 +828,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="vin"                data-endpoint="GETapi-dots"
+                              name="vin"                data-endpoint="GETapi-v1-dots"
                value="ihfqcoynlazghdtqtqxba"
                data-component="body">
     <br>
@@ -839,7 +839,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="license"                data-endpoint="GETapi-dots"
+                              name="license"                data-endpoint="GETapi-v1-dots"
                value="jwbpilpmufinllwloauyd"
                data-component="body">
     <br>
@@ -850,7 +850,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="mc"                data-endpoint="GETapi-dots"
+                              name="mc"                data-endpoint="GETapi-v1-dots"
                value="lsmsjuryvojcybzvrbyic"
                data-component="body">
     <br>
@@ -861,7 +861,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="company_name"                data-endpoint="GETapi-dots"
+                              name="company_name"                data-endpoint="GETapi-v1-dots"
                value="kznkygloigmkwxphlvazj"
                data-component="body">
     <br>
@@ -872,7 +872,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="company_owner"                data-endpoint="GETapi-dots"
+                              name="company_owner"                data-endpoint="GETapi-v1-dots"
                value="rcnfbaqywuxhgjjmzuxju"
                data-component="body">
     <br>
@@ -883,7 +883,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="dba"                data-endpoint="GETapi-dots"
+                              name="dba"                data-endpoint="GETapi-v1-dots"
                value="bqouzswiwxtrkimfcatbx"
                data-component="body">
     <br>
@@ -894,7 +894,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="city"                data-endpoint="GETapi-dots"
+                              name="city"                data-endpoint="GETapi-v1-dots"
                value="spzmrazsroyjpxmqesedy"
                data-component="body">
     <br>
@@ -905,7 +905,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="state"                data-endpoint="GETapi-dots"
+                              name="state"                data-endpoint="GETapi-v1-dots"
                value="ghenqcopwvownkbamlnfn"
                data-component="body">
     <br>
@@ -916,7 +916,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="inspections"                data-endpoint="GETapi-dots"
+                              name="inspections"                data-endpoint="GETapi-v1-dots"
                value="gefbeilfzsyuxoezbdtab"
                data-component="body">
     <br>
@@ -924,7 +924,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="endpoints-GETapi-dots--dotnumber-">Show DOT detail</h2>
+                    <h2 id="endpoints-GETapi-v1-dots--dotnumber-">Show DOT detail</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -932,13 +932,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <p>Get detail for a specific DOT number.</p>
 
-<span id="example-requests-GETapi-dots--dotnumber-">
+<span id="example-requests-GETapi-v1-dots--dotnumber-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8009/api/dots/123456" \
+    --get "http://localhost:8009/api/v1/dots/123456" \
     --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
     --header "Accept-Language: en" \
     --header "Content-Type: application/json" \
@@ -947,7 +947,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8009/api/dots/123456"
+    "http://localhost:8009/api/v1/dots/123456"
 );
 
 const headers = {
@@ -964,7 +964,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-dots--dotnumber-">
+<span id="example-responses-GETapi-v1-dots--dotnumber-">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -988,43 +988,43 @@ fetch(url, {
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-dots--dotnumber-" hidden>
+<span id="execution-results-GETapi-v1-dots--dotnumber-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-dots--dotnumber-"></span>:
+                id="execution-response-status-GETapi-v1-dots--dotnumber-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-dots--dotnumber-"
+    <pre class="json"><code id="execution-response-content-GETapi-v1-dots--dotnumber-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-dots--dotnumber-" hidden>
+<span id="execution-error-GETapi-v1-dots--dotnumber-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-dots--dotnumber-">
+    <pre><code id="execution-error-message-GETapi-v1-dots--dotnumber-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-dots--dotnumber-" data-method="GET"
-      data-path="api/dots/{dotnumber}"
+<form id="form-GETapi-v1-dots--dotnumber-" data-method="GET"
+      data-path="api/v1/dots/{dotnumber}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-dots--dotnumber-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-dots--dotnumber-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-dots--dotnumber-"
-                    onclick="tryItOut('GETapi-dots--dotnumber-');">Try it out ⚡
+                    id="btn-tryout-GETapi-v1-dots--dotnumber-"
+                    onclick="tryItOut('GETapi-v1-dots--dotnumber-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-dots--dotnumber-"
-                    onclick="cancelTryOut('GETapi-dots--dotnumber-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-v1-dots--dotnumber-"
+                    onclick="cancelTryOut('GETapi-v1-dots--dotnumber-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-dots--dotnumber-"
+                    id="btn-executetryout-GETapi-v1-dots--dotnumber-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -1032,7 +1032,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/dots/{dotnumber}</code></b>
+            <b><code>api/v1/dots/{dotnumber}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -1040,7 +1040,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-dots--dotnumber-"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-dots--dotnumber-"
                value="Bearer {YOUR_AUTH_TOKEN}"
                data-component="header">
     <br>
@@ -1051,7 +1051,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept-Language"                data-endpoint="GETapi-dots--dotnumber-"
+                              name="Accept-Language"                data-endpoint="GETapi-v1-dots--dotnumber-"
                value="en"
                data-component="header">
     <br>
@@ -1062,7 +1062,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-dots--dotnumber-"
+                              name="Content-Type"                data-endpoint="GETapi-v1-dots--dotnumber-"
                value="application/json"
                data-component="header">
     <br>
@@ -1073,7 +1073,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-dots--dotnumber-"
+                              name="Accept"                data-endpoint="GETapi-v1-dots--dotnumber-"
                value="application/json"
                data-component="header">
     <br>
@@ -1085,7 +1085,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="dotnumber"                data-endpoint="GETapi-dots--dotnumber-"
+               step="any"               name="dotnumber"                data-endpoint="GETapi-v1-dots--dotnumber-"
                value="123456"
                data-component="url">
     <br>
@@ -1093,7 +1093,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="endpoints-POSTapi-kargho-onboard-from-fmcsa--dotnumber-">Onboard a DOT from FMCSA into KarghoUS</h2>
+                    <h2 id="endpoints-POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-">Onboard a DOT from FMCSA into KarghoUS</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1101,13 +1101,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <p>This endpoint triggers the onboarding process for a DOT number from FMCSA, using the provided password and country ID. The DOT number is passed as a URL parameter, and the password and country ID are sent in the request body. The process will call a stored procedure in the KarghoUS database. Returns a success message if onboarding is successful, or an error message if validation fails or the DOT is not found.</p>
 
-<span id="example-requests-POSTapi-kargho-onboard-from-fmcsa--dotnumber-">
+<span id="example-requests-POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8009/api/kargho/onboard-from-fmcsa/123456" \
+    "http://localhost:8009/api/v1/kargho/onboard-from-fmcsa/123456" \
     --header "Authorization: Bearer {YOUR_AUTH_TOKEN}" \
     --header "Accept-Language: en" \
     --header "Content-Type: application/json" \
@@ -1121,7 +1121,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8009/api/kargho/onboard-from-fmcsa/123456"
+    "http://localhost:8009/api/v1/kargho/onboard-from-fmcsa/123456"
 );
 
 const headers = {
@@ -1144,7 +1144,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-POSTapi-kargho-onboard-from-fmcsa--dotnumber-">
+<span id="example-responses-POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -1176,43 +1176,43 @@ fetch(url, {
 }</code>
  </pre>
     </span>
-<span id="execution-results-POSTapi-kargho-onboard-from-fmcsa--dotnumber-" hidden>
+<span id="execution-results-POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-kargho-onboard-from-fmcsa--dotnumber-"></span>:
+                id="execution-response-status-POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-kargho-onboard-from-fmcsa--dotnumber-"
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-POSTapi-kargho-onboard-from-fmcsa--dotnumber-" hidden>
+<span id="execution-error-POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-kargho-onboard-from-fmcsa--dotnumber-">
+    <pre><code id="execution-error-message-POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-POSTapi-kargho-onboard-from-fmcsa--dotnumber-" data-method="POST"
-      data-path="api/kargho/onboard-from-fmcsa/{dotnumber}"
+<form id="form-POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-" data-method="POST"
+      data-path="api/v1/kargho/onboard-from-fmcsa/{dotnumber}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-kargho-onboard-from-fmcsa--dotnumber-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-kargho-onboard-from-fmcsa--dotnumber-"
-                    onclick="tryItOut('POSTapi-kargho-onboard-from-fmcsa--dotnumber-');">Try it out ⚡
+                    id="btn-tryout-POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-"
+                    onclick="tryItOut('POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-kargho-onboard-from-fmcsa--dotnumber-"
-                    onclick="cancelTryOut('POSTapi-kargho-onboard-from-fmcsa--dotnumber-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-"
+                    onclick="cancelTryOut('POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-kargho-onboard-from-fmcsa--dotnumber-"
+                    id="btn-executetryout-POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -1220,7 +1220,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
-            <b><code>api/kargho/onboard-from-fmcsa/{dotnumber}</code></b>
+            <b><code>api/v1/kargho/onboard-from-fmcsa/{dotnumber}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -1228,7 +1228,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-kargho-onboard-from-fmcsa--dotnumber-"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-"
                value="Bearer {YOUR_AUTH_TOKEN}"
                data-component="header">
     <br>
@@ -1239,7 +1239,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept-Language"                data-endpoint="POSTapi-kargho-onboard-from-fmcsa--dotnumber-"
+                              name="Accept-Language"                data-endpoint="POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-"
                value="en"
                data-component="header">
     <br>
@@ -1250,7 +1250,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-kargho-onboard-from-fmcsa--dotnumber-"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-"
                value="application/json"
                data-component="header">
     <br>
@@ -1261,7 +1261,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-kargho-onboard-from-fmcsa--dotnumber-"
+                              name="Accept"                data-endpoint="POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-"
                value="application/json"
                data-component="header">
     <br>
@@ -1273,7 +1273,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="dotnumber"                data-endpoint="POSTapi-kargho-onboard-from-fmcsa--dotnumber-"
+                              name="dotnumber"                data-endpoint="POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-"
                value="123456"
                data-component="url">
     <br>
@@ -1285,7 +1285,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="password"                data-endpoint="POSTapi-kargho-onboard-from-fmcsa--dotnumber-"
+                              name="password"                data-endpoint="POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-"
                value="123456"
                data-component="body">
     <br>
@@ -1296,7 +1296,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="idcountry"                data-endpoint="POSTapi-kargho-onboard-from-fmcsa--dotnumber-"
+               step="any"               name="idcountry"                data-endpoint="POSTapi-v1-kargho-onboard-from-fmcsa--dotnumber-"
                value="1"
                data-component="body">
     <br>
