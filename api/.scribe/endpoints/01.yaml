@@ -1,0 +1,366 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/dots
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List DOTs'
+      description: 'Get a paginated list of DOTs with filters.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      per_page:
+        name: per_page
+        description: 'Number of results per page.'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      dot:
+        name: dot
+        description: 'DOT number.'
+        required: false
+        example: 123456
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      ein:
+        name: ein
+        description: EIN.
+        required: false
+        example: 12-3456789
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      vin:
+        name: vin
+        description: VIN.
+        required: false
+        example: 1HGCM82633A004352
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      license:
+        name: license
+        description: License.
+        required: false
+        example: ABC123
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      mc:
+        name: mc
+        description: MC.
+        required: false
+        example: MC123456
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      company_name:
+        name: company_name
+        description: 'Company Name.'
+        required: false
+        example: 'Acme Inc'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      company_owner:
+        name: company_owner
+        description: 'Company Owner.'
+        required: false
+        example: 'John Doe'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      dba:
+        name: dba
+        description: DBA.
+        required: false
+        example: 'Acme Logistics'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      city:
+        name: city
+        description: City.
+        required: false
+        example: Miami
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      state:
+        name: state
+        description: State.
+        required: false
+        example: FL
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      inspections:
+        name: inspections
+        description: 'Inspection type.'
+        required: false
+        example: Safety
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanQueryParameters:
+      per_page: 10
+      dot: 123456
+      ein: 12-3456789
+      vin: 1HGCM82633A004352
+      license: ABC123
+      mc: MC123456
+      company_name: 'Acme Inc'
+      company_owner: 'John Doe'
+      dba: 'Acme Logistics'
+      city: Miami
+      state: FL
+      inspections: Safety
+    bodyParameters:
+      per_page:
+        name: per_page
+        description: 'Must be at least 1.'
+        required: false
+        example: 73
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      dot:
+        name: dot
+        description: ''
+        required: false
+        example: 11613.31890586
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      ein:
+        name: ein
+        description: 'Must not be greater than 32 characters.'
+        required: false
+        example: opfuudtdsufvyvddqamni
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      vin:
+        name: vin
+        description: 'Must not be greater than 32 characters.'
+        required: false
+        example: ihfqcoynlazghdtqtqxba
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      license:
+        name: license
+        description: 'Must not be greater than 32 characters.'
+        required: false
+        example: jwbpilpmufinllwloauyd
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      mc:
+        name: mc
+        description: 'Must not be greater than 32 characters.'
+        required: false
+        example: lsmsjuryvojcybzvrbyic
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      company_name:
+        name: company_name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: kznkygloigmkwxphlvazj
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      company_owner:
+        name: company_owner
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: rcnfbaqywuxhgjjmzuxju
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      dba:
+        name: dba
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: bqouzswiwxtrkimfcatbx
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      city:
+        name: city
+        description: 'Must not be greater than 64 characters.'
+        required: false
+        example: spzmrazsroyjpxmqesedy
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      state:
+        name: state
+        description: 'Must not be greater than 32 characters.'
+        required: false
+        example: ghenqcopwvownkbamlnfn
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      inspections:
+        name: inspections
+        description: 'Must not be greater than 64 characters.'
+        required: false
+        example: gefbeilfzsyuxoezbdtab
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      per_page: 73
+      dot: 11613.31890586
+      ein: opfuudtdsufvyvddqamni
+      vin: ihfqcoynlazghdtqtqxba
+      license: jwbpilpmufinllwloauyd
+      mc: lsmsjuryvojcybzvrbyic
+      company_name: kznkygloigmkwxphlvazj
+      company_owner: rcnfbaqywuxhgjjmzuxju
+      dba: bqouzswiwxtrkimfcatbx
+      city: spzmrazsroyjpxmqesedy
+      state: ghenqcopwvownkbamlnfn
+      inspections: gefbeilfzsyuxoezbdtab
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"message":"DOTs list retrieved successfully.","data":{}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Bearer {YOUR_AUTH_TOKEN}'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/dots/{dotnumber}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show DOT detail'
+      description: 'Get detail for a specific DOT number.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_TOKEN}'
+      Accept-Language: en
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      dotnumber:
+        name: dotnumber
+        description: 'DOT number.'
+        required: true
+        example: 123456
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      dotnumber: 123456
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"message":"DOT detail retrieved successfully.","data":{}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"success":false,"message":"DOT not found.","data":null}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Bearer {YOUR_AUTH_TOKEN}'
+    controller: null
+    method: null
+    route: null
+    custom: []

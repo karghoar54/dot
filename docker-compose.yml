@@ -1,0 +1,30 @@
+name: kargho-dot # Prefijo global
+
+services:
+  api:
+    build: ./api/etc
+    container_name: kargho-dot-api
+    environment:
+      DB_CONNECTION: sqlsrv
+      DB_HOST: melpomenia.theworkpc.com
+      DB_PORT: 1433
+      DB_DATABASE: KarghoDOT
+      DB_USERNAME: sa
+      DB_PASSWORD: "Password123!"
+      ACCEPT_EULA: "Y"
+      XDEBUG_MODE: develop, debug
+      XDEBUG_CONFIG: "client_host=host.docker.internal client_port=9003"
+    ports:
+      - "8009:8000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./api:/var/www/html # Código fuente solo lectura
+      # - ./api/composer.json:/var/www/html/composer.json # Permitir escritura en composer.json
+      # - ./api/composer.lock:/var/www/html/composer.lock # Permitir escritura en composer.lock
+      # - ./api/storage:/var/www/html/storage # Permitir escritura en storage
+      # - ./api/storage:/var/www/html/storage # Permitir escritura en storage
+      # - ./api/bootstrap/cache:/var/www/html/bootstrap/cache # Permitir escritura en bootstrap/cache
+      # - ./api/vendor:/var/www/html/vendor # Permitir escritura en vendor
+    restart: unless-stopped
+    entrypoint: ["/usr/local/bin/entrypoint.sh"]
