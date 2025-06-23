@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Validator;
 class KarghoOnboardingController extends Controller
 {
     /**
-     * Trigger onboarding using a DOT number from FMCSA.
+     * Onboard a DOT from FMCSA into KarghoUS
+     *
+     * This endpoint triggers the onboarding process for a DOT number from FMCSA, using the provided password and country ID. The DOT number is passed as a URL parameter, and the password and country ID are sent in the request body. The process will call a stored procedure in the KarghoUS database. Returns a success message if onboarding is successful, or an error message if validation fails or the DOT is not found.
      *
      * @header Accept-Language en
      * @urlParam dotnumber string required DOT number. Example: 123456
@@ -22,8 +24,7 @@ class KarghoOnboardingController extends Controller
      */
     public function onboardFromFMCSA(Request $request, $dotnumber)
     {
-        $validator = Validator::make(array_merge($request->all(), ['dot' => $dotnumber]), [
-            'dot' => 'required|string|max:50',
+        $validator = Validator::make($request->all(), [
             'password' => 'required|string|max:100',
             'idcountry' => 'required|integer|in:1,2',
         ]);
@@ -47,10 +48,21 @@ class KarghoOnboardingController extends Controller
                 'message' => __('messages.onboarding_success'),
             ]);
         } catch (\Exception $e) {
+            // Extract only the SQL error message, not the query or connection details
+            $errorMsg = $e->getMessage();
+            // Try to extract the SQL Server error message (after the last ']')
+            if (preg_match('/\[SQL Server\](.*?)(\(|$)/', $errorMsg, $matches)) {
+                $cleanMsg = trim($matches[1]);
+            } else {
+                // Fallback: remove SQLSTATE and connection info
+                $cleanMsg = preg_replace('/SQLSTATE\[[^\]]*\]:? ?/', '', $errorMsg);
+                $cleanMsg = preg_replace('/\(Connection:.*$/', '', $cleanMsg);
+                $cleanMsg = trim($cleanMsg);
+            }
             return response()->json([
                 'success' => false,
                 'message' => __('messages.onboarding_error'),
-                'error' => $e->getMessage(),
+                'error' => $cleanMsg,
             ], 500);
         }
     }

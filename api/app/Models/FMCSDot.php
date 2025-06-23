@@ -10,6 +10,11 @@ class FMCSDot extends Model
     protected $table = 'FMCSADots';
     public $timestamps = false;
     protected $guarded = [];
+    // protected $hidden = [
+    //     'PasswordPlana',
+    //     'PasswordHash',
+    //     'idCarrier',
+    // ];
 
     public function inspections()
     {

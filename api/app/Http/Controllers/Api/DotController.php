@@ -115,12 +115,12 @@ class DotController extends Controller
         if (!is_numeric($dotnumber)) {
             return $this->errorResponse(__('messages.invalid_dotnumber'), 422);
         }
-        $dot = FMCSDot::where('DOT', $dotnumber)->first();
+        $dot = FMCSDot::where('dotNumber', $dotnumber)->first();
         if (!$dot) {
             return $this->errorResponse(__('messages.dot_not_found'), 404);
         }
-        $details = DotDetail::where('DOT', $dotnumber)->get();
-        $inspections = FMCSAInspection::where('DOT', $dotnumber)->get();
+        $details = DotDetail::where('dot_number', $dotnumber)->get();
+        $inspections = FMCSAInspection::where('DOT_NUMBER', $dotnumber)->get();
         return $this->successResponse([
             'dot' => $dot,
             'details' => $details,

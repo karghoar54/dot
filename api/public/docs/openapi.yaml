@@ -413,9 +413,9 @@ paths:
           type: integer
   '/api/kargho/onboard-from-fmcsa/{dotnumber}':
     post:
-      summary: 'Trigger onboarding using a DOT number from FMCSA.'
-      operationId: triggerOnboardingUsingADOTNumberFromFMCSA
-      description: ''
+      summary: 'Onboard a DOT from FMCSA into KarghoUS'
+      operationId: onboardADOTFromFMCSAIntoKarghoUS
+      description: 'This endpoint triggers the onboarding process for a DOT number from FMCSA, using the provided password and country ID. The DOT number is passed as a URL parameter, and the password and country ID are sent in the request body. The process will call a stored procedure in the KarghoUS database. Returns a success message if onboarding is successful, or an error message if validation fails or the DOT is not found.'
       parameters:
         -
           in: header
@@ -482,11 +482,6 @@ paths:
             schema:
               type: object
               properties:
-                dot:
-                  type: string
-                  description: 'Must not be greater than 50 characters.'
-                  example: vmqeopfuudtdsufvyvddq
-                  nullable: false
                 password:
                   type: string
                   description: Password.
@@ -498,7 +493,6 @@ paths:
                   example: 1
                   nullable: false
               required:
-                - dot
                 - password
                 - idcountry
     parameters:

@@ -1,3 +1,5 @@
 
 /api/.scribe
 api/public/docs/collection.json
+api/public/docs/openapi.yaml
+api/public/docs/index.html

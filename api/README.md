@@ -1,66 +1,111 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Kargho DOT API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Overview
+This API provides endpoints for onboarding DOT numbers from FMCSA, listing and filtering DOTs, and retrieving detailed information about each DOT. It is designed to be the single source of business logic, validation, and messaging, enabling any frontend (web, mobile, etc.) to be as simple as possible. All internationalization, pagination, error handling, and filtering are managed by the backend.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 1. Onboarding DOTs from FMCSA
+- **Endpoint:** `POST /api/onboard-from-fmcsa/{dotnumber}`
+- Triggers onboarding for a DOT number from FMCSA, executing a stored procedure in the KarghoUS SQL Server database.
+- Receives the DOT number as a URL parameter, and password and country ID in the request body.
+- Validates input, encrypts the password, and returns clear success or error messages.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 2. List and Filter DOTs
+- **Endpoint:** `GET /api/dots`
+- Returns a paginated list of DOTs with filters for real columns (EIN, DOT, company name, city, state, etc.) and special filters (VIN, license) via related inspections.
+- Pagination and filtering are fully handled by the backend.
 
-## Learning Laravel
+### 3. DOT Details
+- **Endpoint:** `GET /api/dots/{dotnumber}`
+- Returns detailed information for a specific DOT, including basic info, details, and all related inspections.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Internationalization (i18n)
+- All API messages (success, error, validation) are localized using language files (`lang/en/messages.php`, `lang/es/messages.php`).
+- The API responds in the language specified by the `Accept-Language` header.
+- Documentation is in English, but responses can be in multiple languages.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## Error Handling & Validation
+- All validation is performed in the backend, with clear, structured error messages.
+- SQL Server errors are sanitized to avoid exposing internal details, showing only the relevant message.
+- All errors and validation failures follow a consistent response format.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## Pagination & Filtering
+- Pagination and filtering are managed by the backend, returning only the necessary data for the frontend.
+- Responses include all required fields for pagination and user messages.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
+
+## Data Exposure & Security
+- Only necessary fields are exposed in API responses (e.g., passwords are hidden).
+- Endpoints are documented with clear parameter and response definitions.
+
+---
+
+## Multi-Client Ready
+- The API is designed to be consumed by any client (web, mobile, other systems) without requiring business logic or validation on the frontend.
+- All messages, errors, and data structures are consistent and predictable.
+
+---
+
+## Example Response Formats
+
+### Success
+```json
+{
+  "success": true,
+  "message": "Onboarding executed successfully."
+}
+```
+
+### Validation Error
+```json
+{
+  "success": false,
+  "message": "Validation error.",
+  "errors": {
+    "password": ["The password field is required."]
+  }
+}
+```
+
+### SQL Error
+```json
+{
+  "success": false,
+  "message": "Error executing onboarding.",
+  "error": "DOT Number do not exists."
+}
+```
+
+---
+
+## How to Use
+1. Set the `Accept-Language` header to your preferred language (`en`, `es`, etc.).
+2. Use the documented endpoints, sending only the required parameters.
+3. Handle all messages, errors, and pagination as provided by the backend.
+
+---
+
+## Documentation
+- Full API documentation is generated with Scribe and available in the `public/docs` directory or at `/docs` if hosted.
+- The documentation includes all endpoints, parameters, and example responses.
+
+---
 
 ## Contributing
+- Please ensure all new endpoints follow the same conventions for validation, error handling, and internationalization.
+- Update language files and documentation as needed.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
 ## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is proprietary and not open source.

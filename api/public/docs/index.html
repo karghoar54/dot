@@ -91,7 +91,7 @@
                                 <a href="#endpoints-GETapi-dots--dotnumber-">Show DOT detail</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-kargho-onboard-from-fmcsa--dotnumber-">
-                                <a href="#endpoints-POSTapi-kargho-onboard-from-fmcsa--dotnumber-">Trigger onboarding using a DOT number from FMCSA.</a>
+                                <a href="#endpoints-POSTapi-kargho-onboard-from-fmcsa--dotnumber-">Onboard a DOT from FMCSA into KarghoUS</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -1093,13 +1093,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="endpoints-POSTapi-kargho-onboard-from-fmcsa--dotnumber-">Trigger onboarding using a DOT number from FMCSA.</h2>
+                    <h2 id="endpoints-POSTapi-kargho-onboard-from-fmcsa--dotnumber-">Onboard a DOT from FMCSA into KarghoUS</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>This endpoint triggers the onboarding process for a DOT number from FMCSA, using the provided password and country ID. The DOT number is passed as a URL parameter, and the password and country ID are sent in the request body. The process will call a stored procedure in the KarghoUS database. Returns a success message if onboarding is successful, or an error message if validation fails or the DOT is not found.</p>
 
 <span id="example-requests-POSTapi-kargho-onboard-from-fmcsa--dotnumber-">
 <blockquote>Example request:</blockquote>
@@ -1113,7 +1113,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"dot\": \"vmqeopfuudtdsufvyvddq\",
     \"password\": \"123456\",
     \"idcountry\": 1
 }"
@@ -1133,7 +1132,6 @@ const headers = {
 };
 
 let body = {
-    "dot": "vmqeopfuudtdsufvyvddq",
     "password": "123456",
     "idcountry": 1
 };
@@ -1283,17 +1281,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>dot</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="dot"                data-endpoint="POSTapi-kargho-onboard-from-fmcsa--dotnumber-"
-               value="vmqeopfuudtdsufvyvddq"
-               data-component="body">
-    <br>
-<p>Must not be greater than 50 characters. Example: <code>vmqeopfuudtdsufvyvddq</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
