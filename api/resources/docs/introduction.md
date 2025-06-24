@@ -5,6 +5,7 @@ All endpoints are versioned. The current version is **v1** and all routes are pr
 
 Example:
 - `POST /api/v1/kargho/onboard-from-fmcsa/{dotnumber}`
+- `DELETE /api/v1/kargho/offboard-from-fmcsa/{dotnumber}`
 - `GET /api/v1/dots`
 - `GET /api/v1/dots/{dotnumber}`
 
@@ -13,12 +14,13 @@ When new versions are released, older versions will remain available under their
 ---
 
 ## Overview
-This API provides endpoints for onboarding DOT numbers from FMCSA, listing and filtering DOTs, and retrieving detailed information about each DOT. It is designed to be the single source of business logic, validation, and messaging, enabling any frontend (web, mobile, etc.) to be as simple as possible. All internationalization, pagination, error handling, and filtering are managed by the backend.
+This API provides endpoints for onboarding and offboarding DOT numbers from FMCSA, listing and filtering DOTs, and retrieving detailed information about each DOT. It is designed to be the single source of business logic, validation, and messaging, enabling any frontend (web, mobile, etc.) to be as simple as possible. All internationalization, pagination, error handling, and filtering are managed by the backend.
 
 ---
 
 ## Features
 - Onboarding DOTs from FMCSA
+- Offboarding DOTs from KarghoUS (DELETE)
 - List and filter DOTs
 - Retrieve DOT details
 - Internationalization (i18n)

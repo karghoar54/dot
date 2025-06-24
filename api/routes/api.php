@@ -31,6 +31,8 @@ Route::prefix('v1')->group(function () {
 
     // Onboarding endpoints
     Route::post('/kargho/onboard-from-fmcsa/{dotnumber}', [\App\Http\Controllers\Api\KarghoOnboardingController::class, 'onboardFromFMCSA']);
+    // Offboarding endpoint (now DELETE)
+    Route::delete('/kargho/offboard-from-fmcsa/{dotnumber}', [\App\Http\Controllers\Api\KarghoOnboardingController::class, 'offboardFromFMCSA']);
 });
 
 // Optionally, you can deprecate or remove the unversioned routes below

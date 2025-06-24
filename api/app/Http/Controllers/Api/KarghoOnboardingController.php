@@ -39,6 +39,11 @@ class KarghoOnboardingController extends Controller
         $password = bcrypt($request->input('password'));
         $idcountry = $request->input('idcountry');
         try {
+            //TODO: recordar agregar indices:
+            // - CREATE NONCLUSTERED INDEX IX_FMCSAInspections_DotNumber_VIN ON FMCSA.dbo.FMCSAInspections(dot_number, VIN);
+            // - CREATE NONCLUSTERED INDEX IX_DOTsDetail_DotNumber ON FMCSA.dbo.DOTsDetail(dot_number);
+            // - CREATE NONCLUSTERED INDEX IX_FMCSAInspections_DotNumber_VIN ON FMCSA.dbo.FMCSAInspections(dot_number, VIN);
+            // - CREATE NONCLUSTERED INDEX IX_FMCSAInspections_UniqueId ON FMCSA.dbo.FMCSAInspections(unique_id);
             DB::connection('karghous')->statement(
                 "EXEC OnBoarding @DOT = ?, @PasswordEncrypted = ?, @IdCountry = ?",
                 [$dot, $password, $idcountry]
@@ -62,6 +67,53 @@ class KarghoOnboardingController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => __('messages.onboarding_error'),
+                'error' => $cleanMsg,
+            ], 500);
+        }
+    }
+    /**
+     * Offboard a DOT from KarghoUS
+     *
+     * This endpoint triggers the offboarding process for a DOT number from FMCSA, removing or deactivating it in the KarghoUS database. The DOT number is passed as a URL parameter. Returns a success message if offboarding is successful, or an error message if the DOT is not found or the operation fails.
+     *
+     * @header Accept-Language en
+     * @urlParam dotnumber string required DOT number. Example: 123456
+     * @response 200 {"success":true,"message":"Offboarding executed successfully."}
+     * @response 404 {"success":false,"message":"DOT not found in KarghoUS."}
+     * @response 500 {"success":false,"message":"Error executing offboarding.","error":"..."}
+     *
+     * @method DELETE
+     */
+    public function offboardFromFMCSA(Request $request, $dotnumber)
+    {
+        if (empty($dotnumber)) {
+            return response()->json([
+                'success' => false,
+                'message' => __('messages.validation_failed'),
+                'errors' => ['dotnumber' => ['The DOT number is required.']]
+            ], 400);
+        }
+        try {
+            DB::connection('karghous')->statement(
+                "EXEC OffBoarding @DOT = ?",
+                [$dotnumber]
+            );
+            return response()->json([
+                'success' => true,
+                'message' => __('messages.offboarding_success'),
+            ]);
+        } catch (\Exception $e) {
+            $errorMsg = $e->getMessage();
+            if (preg_match('/\[SQL Server\](.*?)(\(|$)/', $errorMsg, $matches)) {
+                $cleanMsg = trim($matches[1]);
+            } else {
+                $cleanMsg = preg_replace('/SQLSTATE\[[^\]]*\]:? ?/', '', $errorMsg);
+                $cleanMsg = preg_replace('/\(Connection:.*$/', '', $cleanMsg);
+                $cleanMsg = trim($cleanMsg);
+            }
+            return response()->json([
+                'success' => false,
+                'message' => __('messages.offboarding_error'),
                 'error' => $cleanMsg,
             ], 500);
         }

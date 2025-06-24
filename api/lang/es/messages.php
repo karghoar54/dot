@@ -11,4 +11,6 @@ return [
     'logged_out' => 'Sesión cerrada.',
     'onboarding_success' => 'Onboarding ejecutado correctamente.',
     'onboarding_error' => 'Error al ejecutar el onboarding.',
+    'offboarding_success' => 'Offboarding ejecutado correctamente.',
+    'offboarding_error' => 'Error al ejecutar el offboarding.',
 ];

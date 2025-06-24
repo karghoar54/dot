@@ -11,4 +11,6 @@ return [
     'logged_out' => 'Logged out.',
     'onboarding_success' => 'Onboarding executed successfully.',
     'onboarding_error' => 'Error executing onboarding.',
+    'offboarding_success' => 'Offboarding executed successfully.',
+    'offboarding_error' => 'Error executing offboarding.',
 ];

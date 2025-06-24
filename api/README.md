@@ -34,6 +34,12 @@ This API provides endpoints for onboarding DOT numbers from FMCSA, listing and f
 - **Endpoint:** `GET /api/dots/{dotnumber}`
 - Returns detailed information for a specific DOT, including basic info, details, and all related inspections.
 
+### 4. Offboarding DOTs from KarghoUS
+- **Endpoint:** `DELETE /api/offboard-from-fmcsa/{dotnumber}`
+- Triggers the removal or deactivation of a DOT number in the KarghoUS SQL Server database.
+- Receives the DOT number as a URL parameter only.
+- Returns clear success or error messages, similar to onboarding.
+
 ---
 
 ## Internationalization (i18n)
