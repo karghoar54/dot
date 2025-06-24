@@ -52,6 +52,7 @@ This API provides endpoints for onboarding DOT numbers from FMCSA, listing and f
 
 ## Pagination & Filtering
 - Pagination and filtering are managed by the backend, returning only the necessary data for the frontend.
+- The maximum allowed value for `per_page` is 100; if a higher value is requested, only 100 results will be returned per page.
 - Responses include all required fields for pagination and user messages.
 
 ---
